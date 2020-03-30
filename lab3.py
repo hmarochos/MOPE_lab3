@@ -1,11 +1,11 @@
+#1)Обчислення часу виконання - спортивний інтерес) Вже видалив
 
 from random import *
 import numpy as np
 from numpy.linalg import solve
 from scipy.stats import f, t
 from functools import partial
-
-
+from datetime import datetime
 
 
 
@@ -13,7 +13,6 @@ class FractionalExperiment:
     #Проведення дробового трьохфакторного експерименту
 
     def __init__(self, n, m):
-     
         self.n = n
         self.m = m
         self.x_av_min = (-10 + -20 + -20) / 3
@@ -144,6 +143,8 @@ class FractionalExperiment:
         final_k = [B[ts.index(i)] for i in ts if i in res]
         print('Коефіцієнти {} статистично незначущі, тому ми виключаємо їх з рівняння.'.format(
             [i for i in B if i not in final_k]))
+
+        #2) У цьому циклі ми визначаємо нові значення у, враховуючи тільки значущі коефіцієнти:
 
         for j in range(self.n):
             self.y_new.append(self.regression([self.x[j][ts.index(i)] for i in ts if i in res], final_k))
