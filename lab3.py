@@ -1,19 +1,19 @@
-import datetime
+
 from random import *
 import numpy as np
 from numpy.linalg import solve
 from scipy.stats import f, t
 from functools import partial
-from datetime import datetime
 
-start_time = datetime.now()
+
+
 
 
 class FractionalExperiment:
     #Проведення дробового трьохфакторного експерименту
 
     def __init__(self, n, m):
-        start_time = datetime.now()
+     
         self.n = n
         self.m = m
         self.x_av_min = (-10 + -20 + -20) / 3
@@ -167,4 +167,3 @@ class FractionalExperiment:
 
 experiment = FractionalExperiment(7, 8)
 experiment.check()
-print("Час виконання обрахунків: %s секунд" % (datetime.now() - start_time))
